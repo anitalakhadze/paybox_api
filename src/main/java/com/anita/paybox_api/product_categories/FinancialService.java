@@ -19,15 +19,37 @@ public class FinancialService {
 
     public FinancialService(String phoneNumber, 
         Double amount, Double commission, 
-        String serviceType, String IDNumber,
-        String accountNumber){
+        String IDNumber, String accountNumber){
 
         this.phoneNumber = phoneNumber;
         this.amount = amount;
         this.commission = commission;
-        this.serviceType = serviceType;
         this.IDNumber = IDNumber;
         this.accountNumber = accountNumber; 
+    }
+
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public Double getAmount() {
+        return this.amount;
+    }
+
+    public Double getCommission() {
+        return this.commission;
+    }
+
+    public String getIDNumber() {
+        return this.IDNumber;
+    }
+
+    public String getAccountNumber() {
+        return this.accountNumber;
+    }
+
+    public void setServiceType(String type){
+        this.serviceType = type;
     }
 
     @Override

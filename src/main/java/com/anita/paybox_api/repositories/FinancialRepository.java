@@ -3,6 +3,6 @@ import com.anita.paybox_api.product_categories.FinancialService;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-interface FinancialRepository extends JpaRepository<FinancialService, Long>{
+public interface FinancialRepository extends JpaRepository<FinancialService, Long>{
     
 }

@@ -16,13 +16,27 @@ public class MobilePayment {
     public MobilePayment() {}
 
     public MobilePayment(String phoneNumber, 
-        Double amount, Double commission, 
-        String serviceType){
+        Double amount, Double commission){
 
         this.phoneNumber = phoneNumber;
         this.amount = amount;
         this.commission = commission;
-        this.serviceType = serviceType;
+    }
+
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public Double getAmount() {
+        return this.amount;
+    }
+
+    public Double getCommission() {
+        return this.commission;
+    }
+
+    public void setServiceType(String type){
+        this.serviceType = type;
     }
 
     @Override

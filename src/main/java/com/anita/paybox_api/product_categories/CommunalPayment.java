@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class CommunalPayment {
+public class CommunalPayment implements Commission {
 
     private @Id @GeneratedValue Long id;
     private String phoneNumber; 

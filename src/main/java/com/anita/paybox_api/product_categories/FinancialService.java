@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class FinancialService {
+public class FinancialService implements Commission {
 
     private @Id @GeneratedValue Long id;
     private String phoneNumber; 

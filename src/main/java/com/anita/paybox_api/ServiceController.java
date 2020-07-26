@@ -1,6 +1,9 @@
 package com.anita.paybox_api;
 
+import java.util.PriorityQueue;
+
 import com.anita.paybox_api.product_categories.CharityPayment;
+import com.anita.paybox_api.product_categories.Commission;
 import com.anita.paybox_api.product_categories.CommunalPayment;
 import com.anita.paybox_api.product_categories.FinancialService;
 import com.anita.paybox_api.product_categories.MobilePayment;
@@ -20,6 +23,7 @@ public class ServiceController {
     private final CharityRepository charityRepository;
     private final CommunalRepository communalRepository;
     private final FinancialRepository financialRepository;
+    public PriorityQueue<Commission> priorityQueue; 
     
     ServiceController (MobileRepository mobRep,
         CharityRepository charityRep,
@@ -29,14 +33,19 @@ public class ServiceController {
             this.charityRepository = charityRep;
             this.communalRepository = communalRep;
             this.financialRepository = financialRep;
+            this.priorityQueue = new PriorityQueue<Commission>(
+                (a, b) -> Double.compare(a.getCommission(), 
+                b.getCommission())
+            ); 
         }
 
     @PostMapping("/mobile_payment")
     MobilePayment newMobilePayment (
         @RequestBody MobilePayment newMobilePayment) {
-
+        
         newMobilePayment.setServiceType("mobile");
         System.out.println(newMobilePayment);
+        priorityQueue.add(newMobilePayment);
         return mobileRepository.save(newMobilePayment);
     }
 
@@ -46,6 +55,7 @@ public class ServiceController {
 
         newCharityPayment.setServiceType("charity");
         System.out.println(newCharityPayment);
+        priorityQueue.add(newCharityPayment);
         return charityRepository.save(newCharityPayment);
     }
 
@@ -55,6 +65,7 @@ public class ServiceController {
 
         newCommunalPayment.setServiceType("communal");
         System.out.println(newCommunalPayment);
+        priorityQueue.add(newCommunalPayment);
         return communalRepository.save(newCommunalPayment);
     }
 
@@ -64,6 +75,7 @@ public class ServiceController {
 
         newFinancialService.setServiceType("financial");
         System.out.println(newFinancialService);
+        priorityQueue.add(newFinancialService); 
         return financialRepository.save(newFinancialService);
     }
 }

@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 
 @Entity
-public class MobilePayment {
+public class MobilePayment implements Commission {
     
     private @Id @GeneratedValue Long id;
     private String phoneNumber; 

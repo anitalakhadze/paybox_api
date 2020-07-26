@@ -45,6 +45,7 @@ public class ServiceController {
         @RequestBody CharityPayment newCharityPayment) {
 
         newCharityPayment.setServiceType("charity");
+        System.out.println(newCharityPayment);
         return charityRepository.save(newCharityPayment);
     }
 
@@ -53,6 +54,7 @@ public class ServiceController {
         @RequestBody CommunalPayment newCommunalPayment) {
 
         newCommunalPayment.setServiceType("communal");
+        System.out.println(newCommunalPayment);
         return communalRepository.save(newCommunalPayment);
     }
 
@@ -61,6 +63,7 @@ public class ServiceController {
         @RequestBody FinancialService newFinancialService) {
 
         newFinancialService.setServiceType("financial");
+        System.out.println(newFinancialService);
         return financialRepository.save(newFinancialService);
     }
 }

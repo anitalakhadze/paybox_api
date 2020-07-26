@@ -26,5 +26,13 @@ public class CharityPayment {
         this.serviceType = serviceType;
         this.IDNumber = IDNumber;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Service (" + this.serviceType + ") " +
+        "phone number: " + this.phoneNumber + 
+        " amount: " + this.amount + 
+        " commission: " + this.commission +
+        " ID number: " + this.IDNumber;
+    }
 }

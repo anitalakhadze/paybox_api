@@ -24,4 +24,12 @@ public class MobilePayment {
         this.commission = commission;
         this.serviceType = serviceType;
     }
+
+    @Override
+    public String toString() {
+        return "Service (" + this.serviceType + ") " +
+        "phone number: " + this.phoneNumber + 
+        " amount: " + this.amount + 
+        " commission: " + this.commission;
+    }
 }

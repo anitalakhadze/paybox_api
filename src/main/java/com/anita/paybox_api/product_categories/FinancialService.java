@@ -29,5 +29,15 @@ public class FinancialService {
         this.IDNumber = IDNumber;
         this.accountNumber = accountNumber; 
     }
+
+    @Override
+    public String toString() {
+        return "Service (" + this.serviceType + ") " +
+        "phone number: " + this.phoneNumber + 
+        " amount: " + this.amount + 
+        " commission: " + this.commission +
+        " ID number: " + this.IDNumber + 
+        " account number: " + this.accountNumber;
+    }
     
 }

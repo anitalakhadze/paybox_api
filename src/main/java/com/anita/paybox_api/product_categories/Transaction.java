@@ -3,32 +3,48 @@ package com.anita.paybox_api.product_categories;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Column;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+
 
 @Entity
 public class Transaction {
     private @Id @GeneratedValue Long id;
-    @Column(nullable = false)
-    private String phoneNumber;
-    @Column(nullable = false)
-    private Double amount;
-    @Column(nullable = false)
+
+    @Pattern(regexp = "^5[0-9]{8}$")
+//    @Column(nullable = false)
+    private String mobileNumber;
+
+    @Min(1)
+    @Max(100)
+//    @Column(nullable = false)
+    private Double moneyAmount;
+
+    @DecimalMin("0.5")
+//    @Column(nullable = false)
     private Double commission;
-    @Column(nullable = false)
+
+    @Pattern(regexp = "^[a-z]*$")
+//    @Column(nullable = false)
     private String serviceType;
 
-    private String IDNumber;
+    @Pattern(regexp = "^[0-9]{11}$")
+    private String idNumber;
+
+    @Pattern(regexp = "^GE[0-9]{2}[A-Z]{2}[0-9]{16}")
     private String accountNumber;
 
     public Transaction() {}
 
-    public Transaction(String phoneNumber,
-                            Double amount, Double commission,
-                            String IDNumber, String accountNumber){
-        this.phoneNumber = phoneNumber;
-        this.amount = amount;
+    public Transaction(String mobileNumber,
+                       Double moneyAmount, Double commission,
+                       String idNumber, String accountNumber){
+        this.mobileNumber = mobileNumber;
+        this.moneyAmount = moneyAmount;
         this.commission = commission;
-        this.IDNumber = IDNumber;
+        this.idNumber = idNumber;
         this.accountNumber = accountNumber;
     }
 
@@ -40,20 +56,20 @@ public class Transaction {
         this.id = id;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
-    public Double getAmount() {
-        return amount;
+    public Double getMoneyAmount() {
+        return moneyAmount;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
+    public void setMoneyAmount(Double amount) {
+        this.moneyAmount = amount;
     }
 
     public Double getCommission() {
@@ -72,12 +88,12 @@ public class Transaction {
         this.serviceType = serviceType;
     }
 
-    public String getIDNumber() {
-        return IDNumber;
+    public String getIdNumber() {
+        return idNumber;
     }
 
-    public void setIDNumber(String IDNumber) {
-        this.IDNumber = IDNumber;
+    public void setIdNumber(String IDNumber) {
+        this.idNumber = IDNumber;
     }
 
     public String getAccountNumber() {
@@ -91,10 +107,10 @@ public class Transaction {
     @Override
     public String toString() {
         return "Service (" + this.serviceType + ") " +
-                "phone number: " + this.phoneNumber +
-                " amount: " + this.amount +
+                "phone number: " + this.mobileNumber +
+                " amount: " + this.moneyAmount +
                 " commission: " + this.commission +
-                " ID number: " + this.IDNumber +
+                " ID number: " + this.idNumber +
                 " account number: " + this.accountNumber;
     }
 

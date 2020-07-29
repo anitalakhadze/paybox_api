@@ -1,13 +1,13 @@
-package com.anita.paybox_api;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class PayAPITests {
-
-	@Test
-	void contextLoads() {
-	}
-
-}
+//package com.anita.paybox_api;
+//
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
+//
+//@SpringBootTest
+//class PayAPITests {
+//
+//	@Test
+//	void contextLoads() {
+//	}
+//
+//}

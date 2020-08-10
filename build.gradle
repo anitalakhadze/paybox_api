@@ -28,6 +28,11 @@ dependencies {
 		"org.spockframework:spock-core:1.2-groovy-2.4-SNAPSHOT",
 		"org.spockframework:spock-spring:1.2-groovy-2.4-SNAPSHOT"
 	)
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 }
 
 test {
